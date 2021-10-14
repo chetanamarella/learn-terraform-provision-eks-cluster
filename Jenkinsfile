@@ -14,19 +14,19 @@ pipeline {
         sh 'terraform init -upgrade'
       }
     }
-    /*
+    
     stage('Terraform Apply') {
       steps {
         sh 'terraform apply'
       }
-    }*/
+    }
     
-    stage('Terraform action') {
+  /*  stage('Terraform action') {
       steps {
         echo "The action performed is ${Action}"
         sh 'terraform ${Action} --auto-approve'
       }
-    } 
+    } */
   }
 }
       
