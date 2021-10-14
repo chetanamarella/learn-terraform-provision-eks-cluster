@@ -25,10 +25,13 @@ pipeline {
     
     stage('Terraform action') {
       steps {
+        withAWS(credentials: 'aws', region: 'us-east-2') {
         echo "The action performed is ${Action}"
         sh 'terraform ${Action} --auto-approve'
+        }
       }
     } 
   }
 }
+
       
