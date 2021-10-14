@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Git Checkout') {
       steps {
-       checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/chetanamarella/learn-terraform-provision-eks-cluster.git']]])
+        git ' 
         sh 'cd learn-terraform-provision-eks-cluster'
       }
     }
