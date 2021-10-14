@@ -21,12 +21,12 @@ pipeline {
       }
     }*/
     
-   /* stage('Terraform action') {
+    stage('Terraform action') {
       steps {
         echo "The action performed is ${Action}"
         sh 'terraform ${action} --auto-approve'
       }
-    } */
+    } 
   }
 }
       
