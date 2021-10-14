@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Git Checkout') {
       steps {
-        git ' 
+        git 'https://github.com/chetanamarella/learn-terraform-provision-eks-cluster.git' 
         sh 'cd learn-terraform-provision-eks-cluster'
       }
     }
@@ -17,7 +17,8 @@ pipeline {
     
     stage('Terraform action') {
       steps {
-        properties([parameters([choice(choices: ['apply --auto-approve', 'destroy --auto-approve'], name: 'Action')])])
+        echo "The action performed is ${Action}"
+        sh 'terraform ${action} --auto-approve'
       }
     }
   }
