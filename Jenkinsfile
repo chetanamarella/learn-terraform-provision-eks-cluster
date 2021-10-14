@@ -5,11 +5,11 @@ pipeline {
     stage('Git Checkout') {
       steps {
         git 'https://github.com/chetanamarella/learn-terraform-provision-eks-cluster.git' 
-        sh 'cd learn-terraform-provision-eks-cluster'
+        //sh 'cd learn-terraform-provision-eks-cluster'
       }
     }
     
-    stage('Terraform Init') {
+    /*stage('Terraform Init') {
       steps {
         sh 'terraform init'
       }
@@ -19,7 +19,7 @@ pipeline {
       steps {
         sh 'terraform apply'
       }
-    }
+    }*/
     
    /* stage('Terraform action') {
       steps {
