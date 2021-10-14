@@ -9,12 +9,12 @@ pipeline {
       }
     }
     
-    /*stage('Terraform Init') {
+    stage('Terraform Init') {
       steps {
         sh 'terraform init'
       }
     }
-    
+    /*
     stage('Terraform Apply') {
       steps {
         sh 'terraform apply'
