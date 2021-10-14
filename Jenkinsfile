@@ -14,21 +14,21 @@ pipeline {
         sh 'terraform init -upgrade'
       }
     }
-    
+    /*
     stage('Terraform Apply') {
       steps {
         withAWS(credentials: 'aws', region: 'us-east-2') {
           sh 'terraform apply --auto-approve'
         }
       }
-    }
+    } */
     
-  /*  stage('Terraform action') {
+    stage('Terraform action') {
       steps {
         echo "The action performed is ${Action}"
         sh 'terraform ${Action} --auto-approve'
       }
-    } */
+    } 
   }
 }
       
