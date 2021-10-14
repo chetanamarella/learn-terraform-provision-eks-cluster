@@ -15,12 +15,18 @@ pipeline {
       }
     }
     
-    stage('Terraform action') {
+    stage('Terraform Apply') {
+      steps {
+        sh 'terraform apply'
+      }
+    }
+    
+   /* stage('Terraform action') {
       steps {
         echo "The action performed is ${Action}"
         sh 'terraform ${action} --auto-approve'
       }
-    }
+    } */
   }
 }
       
