@@ -28,6 +28,8 @@ pipeline {
         withAWS(credentials: 'aws', region: 'us-east-2') {
         echo "The action performed is ${Action}"
         sh 'terraform ${Action} --auto-approve'
+        sh 'aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)'  
+          
         }
       }
     } 
