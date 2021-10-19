@@ -14,14 +14,14 @@ pipeline {
         sh 'terraform init -upgrade'
       }
     }
-    /*
-    stage('Terraform Apply') {
+    
+    stage('Terraform Plan') {
       steps {
         withAWS(credentials: 'aws', region: 'us-east-2') {
-          sh 'terraform apply --auto-approve'
+          sh 'terraform plan'
         }
       }
-    } */
+    } 
     
     stage('Terraform action') {
       steps {
@@ -29,7 +29,7 @@ pipeline {
         echo "The action performed is ${Action}"
         sh 'terraform ${Action} --auto-approve'
         sh 'cd /var/lib/jenkins/workspace/terraform-eks'  
-        sh 'aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)'  
+        //sh 'aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)'  
           
         }
       }
