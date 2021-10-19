@@ -28,14 +28,14 @@ pipeline {
         echo "The action performed is ${Action}"
         sh 'terraform ${Action} --auto-approve'
         
-        sh '''#!/bin/bash
+        /*sh '''#!/bin/bash
           if [ ${Action} == "apply" ]; then
         
            cd /var/lib/jenkins/workspace/terraform-eks  
            aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name) 
           fi 
           
-          '''
+          ''' */
         }
       }
     } 
