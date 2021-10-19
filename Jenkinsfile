@@ -5,7 +5,6 @@ pipeline {
     stage('Git Checkout') {
       steps {
         git 'https://github.com/chetanamarella/learn-terraform-provision-eks-cluster.git' 
-        //sh 'cd learn-terraform-provision-eks-cluster'
       }
     }
     
@@ -29,7 +28,7 @@ pipeline {
         echo "The action performed is ${Action}"
         sh 'terraform ${Action} --auto-approve'
         sh 'cd /var/lib/jenkins/workspace/terraform-eks'  
-        //sh 'aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)'  
+        sh 'aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)'  
           
         }
       }
